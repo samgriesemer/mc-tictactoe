@@ -1,3 +1,3 @@
 # rl
 
-# reinforcement learning experiments
+reinforcement learning experiments
