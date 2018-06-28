@@ -40,4 +40,4 @@ def UCT(rootstate, maxiters, verbose=False):
   else: print( root.ChildrenToString())
 
   s = sorted(root.children, key=lambda c:c.wins/c.visits)
-  return s[-1].action
+  return {"action":s[-1].action, "children":root.get_children()}

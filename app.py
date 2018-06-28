@@ -24,6 +24,7 @@ def update():
   # get data from post
   data = request.get_json()
   action_type = data['action_type']
+  c = None
 
   # initialize board
   b = Board(session['state'])
@@ -45,8 +46,9 @@ def update():
   elif action_type == 'a':
 
     # bot move
-    n = UCT(b,500)
-    b.move(n)
+    n = UCT(b,250)
+    c = n['children']
+    b.move(n['action'])
 
   # test if player who just moved has won
   winner = ""
@@ -57,7 +59,7 @@ def update():
   session['state']  = b.state.tolist()
   session['player'] = b.player
 
-  return jsonify({"state":session['state'], "winner":winner})
+  return jsonify({"state":session['state'], "winner":winner, "children":c})
 
 @app.route('/reset', methods=['GET'])
 def refresh():

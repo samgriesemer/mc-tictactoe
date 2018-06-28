@@ -44,6 +44,16 @@ class Node:
   def __repr__(self):
     return "[M:" + str(self.action) + " W/V:" + str(self.wins) + "/" + str(self.visits) + " U:" + str(self.untried_actions) + "]"
 
+
+  def get_children(self):
+    clist = []
+    for c in self.children:
+      clist.append({"action":c.action, 
+                    "state":c.board.state.tolist(),
+                    "wins":c.wins,
+                    "visits":c.visits})
+    return clist
+
   def TreeToString(self, indent):
     s = self.IndentString(indent) + str(self)
     for c in self.children:
