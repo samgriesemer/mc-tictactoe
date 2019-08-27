@@ -4,7 +4,7 @@ This is a python implementation of the monte carlo tree search algorithm used to
 
 ## Demo
 
-You can play against the agent live [here](https://smgr.io/rl/mc).
+You can play against the agent live [here](https://smgr.io/rl/monte-carlo/).
 
 ## Contents
 
